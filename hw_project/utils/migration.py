@@ -9,6 +9,7 @@ from quotes.models import Quote, Author, Tag  # noqa
 from .mongodb.connect import db
 
 authors = db.authors.find()
+
 for author in authors:
     Author.objects.get_or_create(
         fullname=author["fullname"],
@@ -20,11 +21,9 @@ for author in authors:
 quotes = db.quotes.find()
 
 for quote in quotes:
-    print(quote["tags"])
+    # print(quote["tags"])
     tags = []
     for tag in quote["tags"]:
         t, *_ = Tag.objects.get_or_create(name=tag)
         tags.append(t)
-    print(tags)
-#     print(author)
-# quotes = db.quotes.find()
+
