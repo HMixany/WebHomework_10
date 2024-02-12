@@ -21,5 +21,10 @@ quotes = db.quotes.find()
 
 for quote in quotes:
     print(quote["tags"])
+    tags = []
+    for tag in quote["tags"]:
+        t, *_ = Tag.objects.get_or_create(name=tag)
+        tags.append(t)
+    print(tags)
 #     print(author)
 # quotes = db.quotes.find()
