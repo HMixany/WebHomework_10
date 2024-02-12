@@ -16,5 +16,10 @@ for author in authors:
         born_location=author["born_location"],
         description=author["description"]
     )
+
+quotes = db.quotes.find()
+
+for quote in quotes:
+    print(quote["tags"])
 #     print(author)
 # quotes = db.quotes.find()
