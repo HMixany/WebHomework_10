@@ -10,5 +10,11 @@ from .mongodb.connect import db
 
 authors = db.authors.find()
 for author in authors:
-    print(author)
-quotes = db.quotes.find()
+    Author.objects.get_or_create(
+        fullname=author["fullname"],
+        born_date=author["born_date"],
+        born_location=author["born_location"],
+        description=author["description"]
+    )
+#     print(author)
+# quotes = db.quotes.find()
