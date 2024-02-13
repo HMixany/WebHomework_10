@@ -10,7 +10,7 @@
 </div>
 {% endif %}
 
-<form action="{% url 'users:login' %}" method="post">
+<form action="{% url 'users:login' %}" method="post" class="text-light bg-dark">
     {% csrf_token %}
     <div>
         <label> Username:
@@ -25,8 +25,8 @@
     </div>
 
     <div class="grid">
-        <button type="submit">Submit</button>
-        <button type="reset" class="secondary">Reset</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-success">Reset</button>
     </div>
 </form>
 

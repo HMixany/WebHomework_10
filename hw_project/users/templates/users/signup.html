@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<div>
+<div class="text-light bg-dark">
     <h2>Sign Up</h2>
 </div>
 
-<form method="post" action="{% url 'users:signup' %}">
+<form method="post" action="{% url 'users:signup' %}" class="text-light bg-dark">
     {% csrf_token %}
     <div>
         <label> Username:
@@ -28,8 +28,8 @@
         <span>{{ form.errors.password2 }}</span>
     </div>
     <div class="grid">
-        <button type="submit">Submit</button>
-        <button type="reset" class="secondary">Reset</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-success">Reset</button>
     </div>
 </form>
 

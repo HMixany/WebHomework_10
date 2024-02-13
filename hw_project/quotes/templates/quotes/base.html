@@ -25,11 +25,12 @@
             <p>
                 {% if user.is_authenticated %}
 
-                <a class="btn btn-success" href="{% url 'noteapp:note' %}" role="button">Add note</a>
-                <a class="btn btn-success" href="{% url 'noteapp:tag' %}" role="button">Add Tag</a>
+                <a class="btn btn-success" href="{% url 'quotes:add_author' %}" role="button">Add author</a>
+                <a class="btn btn-success" href="{% url 'quotes:add_quote' %}" role="button">Add quote</a>
 
 
-                Welcome <b>{{ user.username }}!</b>
+
+               <p class="text-light bg-dark">Welcome <b>{{ user.username }}!</b></p>
                 <a class="btn btn-success" href="{% url 'users:logout' %}" role="button">Logout</a>
                 {% else %}
 
