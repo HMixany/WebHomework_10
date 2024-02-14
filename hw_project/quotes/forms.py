@@ -24,8 +24,8 @@ from .models import Author, Quote
 
 class AuthorForm(forms.ModelForm):
     fullname = forms.CharField(min_length=5, max_length=50, required=True, widget=forms.TextInput())
-    born_date = forms.DateField()
-    born_location = forms.CharField(min_length=3, max_length=50, required=True, widget=forms.TextInput())
+    born_date = forms.CharField(min_length=5, max_length=50, required=True, widget=forms.TextInput())
+    born_location = forms.CharField(min_length=3, max_length=150, required=True, widget=forms.TextInput())
     description = forms.CharField(max_length=250, widget=forms.Textarea(attrs={'class': 'form-control'}))
 
     class Meta:
@@ -34,8 +34,9 @@ class AuthorForm(forms.ModelForm):
 
 
 class QuoteForm(forms.ModelForm):
-    quote = forms.CharField()
-    tags = forms.CharField()
+    class Meta:
+        model = Quote
+        fields = ['quote', 'tags', 'author']
 
     def __init__(self, *args, **kwargs):
         super(QuoteForm, self).__init__(*args, **kwargs)
@@ -48,7 +49,3 @@ class QuoteForm(forms.ModelForm):
         if len(quote) < 10:
             raise forms.ValidationError("Цитата занадто коротка")
         return quote
-
-    class Meta:
-        model = Quote
-        fields = ['quote', 'tags', 'author']
